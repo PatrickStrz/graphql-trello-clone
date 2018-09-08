@@ -1,0 +1,2 @@
+endpoint: https://us1.prisma.sh/patrickstrzelec/trello-clone-api/dev
+datamodel: datamodel.graphql
