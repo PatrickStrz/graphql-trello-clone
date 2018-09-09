@@ -1,4 +1,34 @@
-type User {
+type Board {
   id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   name: String!
+  lists: [List!]!
+}
+
+type List {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  board: Board!
+  cards: [Card!]!
+}
+
+type Card {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  description: String!
+  list: List!
+  comments: [Comment!]!
+}
+
+type Comment {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  text: String!
+  card: Card!
 }
