@@ -4,7 +4,7 @@ import Styled from 'styled-components'
 
 import { BoardList } from './board-list'
 
-export const HomeScreen = () => (
+export const HomePage = () => (
   <Box>
     <BoardList />
   </Box>

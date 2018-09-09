@@ -5,7 +5,7 @@ import { globalStyles } from './globalStyles'
 import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-boost'
 
-import { HomeScreen } from './features'
+import { Router } from './Router'
 
 const client = new ApolloClient({
   uri: 'https://us1.prisma.sh/patrickstrzelec/trello-clone-api/dev'
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <AppBox>
-          <HomeScreen />
+          <Router />
         </AppBox>
       </ApolloProvider>
     )
