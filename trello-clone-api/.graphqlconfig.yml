@@ -2,6 +2,7 @@ projects:
   myapp:
     schemaPath: src/generated/prisma.graphql
     extensions:
+      endpoint: 'https://us1.prisma.sh/patrickstrzelec/trello-clone-api/dev'
       prisma: prisma.yml
       codegen:
         - generator: prisma-binding

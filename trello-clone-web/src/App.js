@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import { ApolloProvider } from 'react-apollo'
+
+import ApolloClient from 'apollo-boost'
+
+import { HomeScreen } from './features'
+
+const client = new ApolloClient({
+  uri: 'https://us1.prisma.sh/patrickstrzelec/trello-clone-api/dev'
+})
 
 class App extends Component {
+  componentWillMount() {}
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <ApolloProvider client={client}>
+        <div className="App">
+          <HomeScreen />
+        </div>
+      </ApolloProvider>
+    )
   }
 }
 
-export default App;
+export default App
