@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import { ApolloProvider } from 'react-apollo'
+import Styled from 'styled-components'
+import { globalStyles } from './globalStyles'
 
+import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-boost'
 
 import { HomeScreen } from './features'
@@ -16,12 +16,18 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <div className="App">
+        <AppBox>
           <HomeScreen />
-        </div>
+        </AppBox>
       </ApolloProvider>
     )
   }
 }
+
+const AppBox = Styled.div`
+  height: 100vh;
+  width: 100vw;
+  background-color: ${globalStyles.background};
+`
 
 export default App
