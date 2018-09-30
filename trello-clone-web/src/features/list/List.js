@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { COLORS } from 'global-styles'
 
 import { Card } from 'features'
-import { CreateCardButtonGQL } from 'features/card'
+import { CreateCardSection } from './'
 
 export class List extends React.Component {
   state = {
@@ -18,15 +18,12 @@ export class List extends React.Component {
     return (
       <Box>
         <Title> {list.name}</Title>
-        {list.cards.map(card => (
-          <Card key={card.id} card={card} />
-        ))}
-        <CreateCardButtonGQL
-          name="new name of card"
-          listId={list.id}
-          description={'some description'}
-          boardId={list.board.id}
-        />
+        <CardsBox>
+          {list.cards.map(card => (
+            <Card key={card.id} card={card} />
+          ))}
+        </CardsBox>
+        <CreateCardSection listId={list.id} boardId={list.board.id} />
       </Box>
     )
   }
@@ -40,8 +37,13 @@ const Box = styled.div`
   align-items: center;
   background-color: ${COLORS.secondary};
   width: 20%;
-  padding: 10px;
-  border: solid 2px ${COLORS.primary};
   margin: 5px;
   border-radius: 2px;
+`
+
+const CardsBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 `

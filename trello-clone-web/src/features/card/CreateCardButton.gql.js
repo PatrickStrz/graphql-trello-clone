@@ -3,6 +3,7 @@ import React from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import { Button } from 'shared'
 import { BOARD_QUERY } from 'features/board'
 
 export const CREATE_CARD_MUTATION = gql`
@@ -25,7 +26,13 @@ export const CREATE_CARD_MUTATION = gql`
   }
 `
 
-export const CreateCardButtonGQL = ({ name, description, listId, boardId }) => (
+export const CreateCardButtonGQL = ({
+  name,
+  description,
+  listId,
+  boardId,
+  onSuccess
+}) => (
   <Mutation
     mutation={CREATE_CARD_MUTATION}
     variables={{ name, description, listId }}
@@ -33,15 +40,16 @@ export const CreateCardButtonGQL = ({ name, description, listId, boardId }) => (
     {(createCardOnList, { error, loading, data }) => (
       <div>
         <p>{error && error.message}</p>
-        <button
+        <Button
+          primary
           onClick={() =>
             createCardOnList({
               refetchQueries: [{ query: BOARD_QUERY, variables: { boardId } }]
-            })
+            }).then(onSuccess())
           }
         >
           {loading ? '...loading' : 'Add Card'}
-        </button>
+        </Button>
       </div>
     )}
   </Mutation>
