@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { globalStyles } from './globalStyles'
+import { COLORS } from 'global-styles/colors'
 
 import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-boost'
@@ -27,7 +27,7 @@ class App extends Component {
 const AppBox = styled.div`
   height: 100vh;
   width: 100vw;
-  background-color: ${globalStyles.background};
+  background-color: ${COLORS.background};
 `
 
 export default App

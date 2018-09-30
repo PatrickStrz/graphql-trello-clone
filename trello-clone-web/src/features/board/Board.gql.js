@@ -12,8 +12,10 @@ import { ListSection } from './'
 const BOARD_QUERY = gql`
   query entireTrelloAppQuery($boardId: ID!) {
     board(where: { id: $boardId }) {
+      id
       name
       lists {
+        id
         name
         cards {
           id

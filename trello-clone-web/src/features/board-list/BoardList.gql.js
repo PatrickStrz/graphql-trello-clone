@@ -22,7 +22,11 @@ export const BoardList = () => (
       return (
         <Box>
           {data.boards.map(({ id, name }) => (
-            <Link style={{ color: 'red', margin: 5 }} to={`board/${id}`}>
+            <Link
+              key={id}
+              style={{ color: 'red', margin: 5 }}
+              to={`board/${id}`}
+            >
               {name}
             </Link>
           ))}
