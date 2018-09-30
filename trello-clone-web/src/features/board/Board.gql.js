@@ -8,6 +8,7 @@ import { Query } from 'react-apollo'
 import { LoadingIndicator } from 'shared'
 
 import { ListSection } from './'
+import { COLORS } from 'global-styles'
 
 const BOARD_QUERY = gql`
   query entireTrelloAppQuery($boardId: ID!) {
@@ -58,7 +59,7 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+  background-color: ${COLORS.background};
   height: 100%;
   width: 100%;
 `
