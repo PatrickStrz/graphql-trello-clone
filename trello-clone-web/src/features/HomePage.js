@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
 import { BoardList } from './board-list'
 
@@ -10,7 +10,7 @@ export const HomePage = () => (
   </Box>
 )
 
-const Box = Styled.div`
+const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

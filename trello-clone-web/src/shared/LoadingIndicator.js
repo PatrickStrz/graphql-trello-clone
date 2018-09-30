@@ -1,5 +1,5 @@
 import React from 'react'
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
 export const LoadingIndicator = () => (
   <Box>
@@ -7,10 +7,10 @@ export const LoadingIndicator = () => (
   </Box>
 )
 
-const Box = Styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const Box = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-const Text = Styled.p``
+const Text = styled.p``

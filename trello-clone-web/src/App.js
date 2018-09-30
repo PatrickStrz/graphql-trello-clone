@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Styled from 'styled-components'
+import styled from 'styled-components'
 import { globalStyles } from './globalStyles'
 
 import { ApolloProvider } from 'react-apollo'
@@ -24,7 +24,7 @@ class App extends Component {
   }
 }
 
-const AppBox = Styled.div`
+const AppBox = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: ${globalStyles.background};

@@ -1,5 +1,5 @@
 import React from 'react'
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
 import gql from 'graphql-tag'
 
@@ -7,11 +7,13 @@ import { Query } from 'react-apollo'
 
 import { LoadingIndicator } from 'shared'
 
+import { ListSection } from './'
+
 const BOARD_QUERY = gql`
   query entireTrelloAppQuery($boardId: ID!) {
     board(where: { id: $boardId }) {
+      name
       lists {
-        id
         name
         cards {
           id
@@ -37,19 +39,26 @@ export const BoardGql = ({ id }) => (
         if (loading) {
           return <LoadingIndicator />
         }
-        console.log(data)
-        return <div>{data.board.lists[0].name}</div>
+        return (
+          <Box>
+            <Title>{data.board.name}</Title>
+            <ListSection lists={data.board.lists} />
+          </Box>
+        )
       }}
     </Query>
     {/* <Title>fetching for board with id: {id}</Title> */}
   </Box>
 )
 
-const Box = Styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:'red';
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  height: 100%;
+  width: 100%;
 `
 
-const Title = Styled.p``
+const Title = styled.p``
