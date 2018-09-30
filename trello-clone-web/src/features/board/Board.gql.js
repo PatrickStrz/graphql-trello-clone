@@ -10,7 +10,7 @@ import { LoadingIndicator } from 'shared'
 import { ListSection } from './'
 import { COLORS } from 'global-styles'
 
-const BOARD_QUERY = gql`
+export const BOARD_QUERY = gql`
   query entireTrelloAppQuery($boardId: ID!) {
     board(where: { id: $boardId }) {
       id
@@ -26,6 +26,9 @@ const BOARD_QUERY = gql`
             id
             text
           }
+        }
+        board {
+          id
         }
       }
     }

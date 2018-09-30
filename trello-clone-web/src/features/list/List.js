@@ -5,15 +5,32 @@ import styled from 'styled-components'
 import { COLORS } from 'global-styles'
 
 import { Card } from 'features'
+import { CreateCardButtonGQL } from 'features/card'
 
-export const List = ({ list }) => (
-  <Box>
-    <Title> {list.name}</Title>
-    {list.cards.map(card => (
-      <Card key={card.id} card={card} />
-    ))}
-  </Box>
-)
+export class List extends React.Component {
+  state = {
+    showCreateCardForm: false,
+    newCardName: {}
+  }
+
+  render() {
+    const { list } = this.props
+    return (
+      <Box>
+        <Title> {list.name}</Title>
+        {list.cards.map(card => (
+          <Card key={card.id} card={card} />
+        ))}
+        <CreateCardButtonGQL
+          name="new name of card"
+          listId={list.id}
+          description={'some description'}
+          boardId={list.board.id}
+        />
+      </Box>
+    )
+  }
+}
 
 const Title = styled.p``
 
