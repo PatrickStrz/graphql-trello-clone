@@ -21,10 +21,10 @@ export const BOARD_QUERY = gql`
         cards {
           id
           name
-          description
-          comments {
-            id
-            text
+          list {
+            board {
+              id
+            }
           }
         }
         board {
