@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { List } from '../'
+import { List } from '../list'
+import { CreateListSection } from '../list'
 
-export const ListSection = ({ lists }) => {
+export const ListSection = ({ lists, boardId }) => {
   return (
     <Box>
       {lists.map(list => (
         <List key={list.id} list={list} />
       ))}
+      <CreateListSection boardId={boardId} />
     </Box>
   )
 }

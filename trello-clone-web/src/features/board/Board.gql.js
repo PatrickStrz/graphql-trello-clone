@@ -48,7 +48,7 @@ export const BoardGql = ({ id }) => (
         return (
           <Box>
             <Title>{data.board.name}</Title>
-            <ListSection lists={data.board.lists} />
+            <ListSection lists={data.board.lists} boardId={id} />
           </Box>
         )
       }}

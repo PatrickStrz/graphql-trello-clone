@@ -41,7 +41,7 @@ const Box = styled.div`
   border-radius: 2px;
 `
 
-const CardsBox = styled.div`
+export const CardsBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
