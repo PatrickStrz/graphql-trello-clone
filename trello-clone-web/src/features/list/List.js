@@ -20,7 +20,7 @@ export class List extends React.Component {
         <Title> {list.name}</Title>
         <CardsBox>
           {list.cards.map(card => (
-            <Card key={card.id} card={card} />
+            <Card key={card.id} card={card} boardId={list.board.id} />
           ))}
         </CardsBox>
         <CreateCardSection listId={list.id} boardId={list.board.id} />

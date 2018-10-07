@@ -63,8 +63,8 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${COLORS.background};
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
 `
 
 const Title = styled.p``

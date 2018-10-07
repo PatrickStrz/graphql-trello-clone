@@ -20,4 +20,5 @@ const Box = styled.div`
   align-items: flex-start;
   height: 100%;
   width: 100%;
+  overflow-x: auto;
 `

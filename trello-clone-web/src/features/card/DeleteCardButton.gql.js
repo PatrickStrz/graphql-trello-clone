@@ -1,9 +1,8 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
 import gql from 'graphql-tag'
-import { COLORS } from 'global-styles'
 import { Mutation } from 'react-apollo'
 import { BOARD_QUERY } from 'features'
+import { DeleteIcon } from 'shared'
 
 export const DELETE_CARD_MUTATION = gql`
   mutation deleteCard($id: ID!) {
@@ -20,23 +19,7 @@ export const DeleteCardButtonGql = ({ id, boardId }) => (
     refetchQueries={[{ query: BOARD_QUERY, variables: { boardId } }]}
   >
     {(mutation, { loading }) => (
-      <DeleteIcon onClick={mutation} loading={loading}>
-        X
-      </DeleteIcon>
+      <DeleteIcon onClick={mutation} loading={loading} />
     )}
   </Mutation>
 )
-
-const DeleteIcon = styled.div`
-  color: ${COLORS.primaryActive};
-  ${props => {
-    if (props.loading) {
-      return css`
-        opacity: 0.5;
-      `
-    }
-  }} :hover {
-    cursor: pointer;
-    color: ${COLORS.danger};
-  }
-`

@@ -26,7 +26,7 @@ class App extends Component {
 
 const AppBox = styled.div`
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
   background-color: ${COLORS.background};
   padding: 10px;
 `
