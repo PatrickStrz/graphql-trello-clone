@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { COLORS } from 'global-styles'
 
 import { Card } from 'features'
-import { CreateCardSection } from './'
+import { CreateCardSection, DeleteListButtonGql } from './'
 
 export class List extends React.Component {
   state = {
@@ -17,7 +17,14 @@ export class List extends React.Component {
     const { list } = this.props
     return (
       <Box>
-        <Title> {list.name}</Title>
+        <TitleBox>
+          <Title> {list.name}</Title>
+          <DeleteListButtonGql
+            boardId={list.board.id}
+            listId={list.id}
+            iconStyles={{ marginLeft: 10 }}
+          />
+        </TitleBox>
         <CardsBox>
           {list.cards.map(card => (
             <Card key={card.id} card={card} boardId={list.board.id} />
@@ -46,4 +53,9 @@ export const CardsBox = styled.div`
   flex-direction: column;
   align-items: center;
   width: 85%;
+`
+export const TitleBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `

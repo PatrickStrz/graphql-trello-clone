@@ -2,8 +2,8 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { COLORS } from 'global-styles'
 
-export const DeleteIcon = ({ loading, onClick }) => (
-  <Icon loading={loading} onClick={onClick}>
+export const DeleteIcon = ({ loading, onClick, styles }) => (
+  <Icon loading={loading} onClick={onClick} style={styles}>
     X
   </Icon>
 )
