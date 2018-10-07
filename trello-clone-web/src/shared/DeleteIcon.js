@@ -4,11 +4,13 @@ import { COLORS } from 'global-styles'
 
 export const DeleteIcon = ({ loading, onClick, styles }) => (
   <Icon loading={loading} onClick={onClick} style={styles}>
-    X
+    x
   </Icon>
 )
 
-const Icon = styled.div`
+const Icon = styled.p`
+  font-size: 20px;
+  font-weight: bold;
   color: ${COLORS.primaryActive};
   ${props => {
     if (props.loading) {
