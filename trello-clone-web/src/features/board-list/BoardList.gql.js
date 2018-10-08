@@ -4,7 +4,8 @@ import { Query } from 'react-apollo'
 
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-const SELECT_BOARD_QUERY = gql`
+import { CreateBoardSection } from './'
+export const BOARD_LIST_QUERY = gql`
   query boardsList {
     boards {
       id
@@ -14,7 +15,7 @@ const SELECT_BOARD_QUERY = gql`
 `
 
 export const BoardList = () => (
-  <Query query={SELECT_BOARD_QUERY}>
+  <Query query={BOARD_LIST_QUERY}>
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>
       if (error) return <p>Error :(</p>
@@ -30,6 +31,7 @@ export const BoardList = () => (
               {name}
             </Link>
           ))}
+          <CreateBoardSection />
         </Box>
       )
     }}
