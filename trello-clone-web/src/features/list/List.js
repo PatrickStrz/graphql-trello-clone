@@ -6,7 +6,7 @@ import { COLORS } from 'global-styles'
 
 import { Card } from 'features'
 import { DeleteListButtonGql } from './'
-import { CreateUpdateCardSection } from '../card/CreateUpdateCardSection'
+import { CreateCardSection } from '../card/CreateCardSection'
 
 export class List extends React.Component {
   state = {
@@ -31,7 +31,7 @@ export class List extends React.Component {
             <Card key={card.id} card={card} boardId={list.board.id} />
           ))}
         </CardsBox>
-        <CreateUpdateCardSection listId={list.id} boardId={list.board.id} />
+        <CreateCardSection listId={list.id} boardId={list.board.id} />
       </Box>
     )
   }

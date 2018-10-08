@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { CreateCardButtonGQL } from 'features/card'
 import { COLORS } from 'global-styles'
 
-export class CreateUpdateCardSection extends React.Component {
+export class CreateCardSection extends React.Component {
   state = {
     name: ''
   }
