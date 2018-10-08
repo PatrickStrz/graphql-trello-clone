@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { CreateCardButtonGQL } from 'features/card'
 import { COLORS } from 'global-styles'
 
-export class CreateCardSection extends React.Component {
+export class CreateUpdateCardSection extends React.Component {
   state = {
     name: ''
   }
 
   render() {
-    const { listId, boardId } = this.props
+    const { listId, boardId, update } = this.props
     return (
       <CardInputFormBox>
         <CardInput
@@ -19,13 +19,17 @@ export class CreateCardSection extends React.Component {
           }}
           value={this.state.name}
         />
-        <CreateCardButtonGQL
-          onSuccess={() => this.setState({ name: '' })}
-          name={this.state.name}
-          listId={listId}
-          description={''}
-          boardId={boardId}
-        />
+        {update ? (
+          <div>Update Title</div>
+        ) : (
+          <CreateCardButtonGQL
+            onSuccess={() => this.setState({ name: '' })}
+            name={this.state.name}
+            listId={listId}
+            description={''}
+            boardId={boardId}
+          />
+        )}
       </CardInputFormBox>
     )
   }

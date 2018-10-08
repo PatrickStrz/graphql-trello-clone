@@ -22,4 +22,5 @@ const Icon = styled.p`
     cursor: pointer;
     color: ${COLORS.danger};
   }
+  margin: 0px;
 `

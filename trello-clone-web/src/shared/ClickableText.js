@@ -2,8 +2,10 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-export const ClickableText = ({ text, onClick }) => (
-  <Text onClick={onClick}>{text}</Text>
+export const ClickableText = ({ onClick, children, color }) => (
+  <Text onClick={onClick} color={color}>
+    {children}
+  </Text>
 )
 
 const Text = styled.p`
@@ -11,4 +13,6 @@ const Text = styled.p`
     color: grey;
     cursor: pointer;
   }
+  margin: 0px;
+  color: ${props => props.color};
 `
